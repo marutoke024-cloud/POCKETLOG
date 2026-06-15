@@ -1,0 +1,72 @@
+.set {
+  margin-bottom: 14px;
+}
+.set__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.set__status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-left: auto;
+}
+.set__status.is-ok {
+  background: rgba(91, 158, 122, 0.15);
+  color: var(--ok);
+}
+.set__status.is-ng {
+  background: rgba(208, 91, 84, 0.12);
+  color: var(--danger);
+}
+.set__note {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.set__note code {
+  background: var(--surface);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.set textarea {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+.set__ok {
+  color: var(--ok);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 10px 0 0;
+  text-align: center;
+}
+.set__pays {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.set__pays li {
+  background: var(--surface);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+.set__ver {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin: 24px 0 0;
+}

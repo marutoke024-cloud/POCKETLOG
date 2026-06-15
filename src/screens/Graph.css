@@ -1,0 +1,23 @@
+.graph__section {
+  margin-bottom: 14px;
+}
+.graph__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.graph__sub {
+  font-size: 12px;
+  color: var(--text-soft);
+  margin: 0 0 16px;
+}
+.graph__soon {
+  margin-bottom: 14px;
+  opacity: 0.92;
+}
+.graph__soon-text {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 6px 0 12px;
+}

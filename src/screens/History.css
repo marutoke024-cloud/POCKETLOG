@@ -1,0 +1,146 @@
+.history__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 4px 0 14px;
+}
+.history__nav {
+  font-size: 24px;
+  color: var(--teal);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+.history__nav:disabled {
+  opacity: 0.3;
+}
+.history__month {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  min-width: 130px;
+  text-align: center;
+}
+
+.history__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.history__summary strong {
+  font-size: 20px;
+}
+
+.history__search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.history__search input {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: var(--radius-m);
+  border: 1.5px solid var(--surface);
+  background: var(--white);
+}
+.history__filter-btn {
+  padding: 0 14px;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  border: 1.5px solid var(--surface);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+.history__filter-btn.is-on {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.history__filters {
+  margin-bottom: 12px;
+}
+.history__filters .field {
+  margin-bottom: 0;
+}
+
+.history__empty {
+  text-align: center;
+  color: var(--text-faint);
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+.history__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.exp {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  background: var(--white);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+  padding: 12px 12px 12px 0;
+  overflow: hidden;
+}
+.exp__cat {
+  width: 5px;
+  flex: 0 0 auto;
+  border-radius: 0 4px 4px 0;
+}
+.exp__body {
+  flex: 1;
+  min-width: 0;
+}
+.exp__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.exp__store {
+  font-weight: 700;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.exp__amount {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 auto;
+}
+.exp__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-soft);
+  margin-top: 3px;
+}
+.exp__dot {
+  color: var(--text-faint);
+}
+.exp__memo {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+.exp__del {
+  align-self: center;
+  font-size: 16px;
+  opacity: 0.55;
+  padding: 6px;
+}

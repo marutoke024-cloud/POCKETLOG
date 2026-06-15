@@ -1,0 +1,111 @@
+.chart-empty {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 13px;
+  padding: 40px 0;
+}
+
+.donut {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.donut__chart {
+  position: relative;
+}
+.donut__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.donut__center-label {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+.donut__center-value {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.donut__legend {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+.donut__legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+}
+.donut__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+.donut__name {
+  color: var(--text-soft);
+}
+.donut__val {
+  margin-left: auto;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-tip {
+  background: var(--splash-bg);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+.chart-tip__label {
+  opacity: 0.7;
+}
+.chart-tip__val {
+  font-weight: 700;
+}
+
+/* 横棒ランキング（グラフ画面） */
+.hbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hbar__row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hbar__top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.hbar__name {
+  font-weight: 600;
+}
+.hbar__val {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.hbar__track {
+  height: 9px;
+  border-radius: 999px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.hbar__fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}

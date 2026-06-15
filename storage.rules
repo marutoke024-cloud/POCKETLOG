@@ -1,0 +1,16 @@
+rules_version = '2';
+// レシート画像の保存先。動作確認用は全許可、本番は認証必須に切り替える。
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // --- 動作確認用 ---
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+
+    // --- 本番推奨 ---
+    // match /receipts/{file} {
+    //   allow read, write: if request.auth != null;
+    // }
+  }
+}

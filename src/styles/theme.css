@@ -1,0 +1,52 @@
+:root {
+  /* --- ブランドカラー --- */
+  --teal: #3d6d79;
+  --teal-deep: #2d5560;
+  --teal-mid: #4a7d8a;
+  --teal-grad-a: #4a7d8a;
+  --teal-grad-b: #3d6d79;
+  --teal-grad-c: #2d5560;
+  --gold: #d69d66;
+  --gold-bright: #e6b885;
+
+  /* --- 面・背景 --- */
+  --bg: #f7f8fc;
+  --surface: #e0e2ee;
+  --white: #ffffff;
+  --splash-bg: #0d1f25;
+
+  /* --- テキスト --- */
+  --text: #2a2a2a;
+  --text-soft: #5d6470;
+  --text-faint: #9aa0ac;
+  --on-teal: #ffffff;
+
+  /* --- カテゴリ色（ドーナツ用） --- */
+  --cat-food: #3d6d79;
+  --cat-daily: #5b94a3;
+  --cat-transport: #d69d66;
+  --cat-comm: #8a6d9e;
+  --cat-fun: #c97f6d;
+  --cat-shopping: #6d9e8a;
+  --cat-subs: #9e8a6d;
+  --cat-other: #9aa0ac;
+
+  /* --- フィードバック --- */
+  --danger: #d05b54;
+  --warn: #d69d66;
+  --ok: #5b9e7a;
+
+  /* --- 形 --- */
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 22px;
+  --shadow-card: 0 4px 16px rgba(45, 85, 96, 0.08);
+  --shadow-float: 0 8px 24px rgba(45, 85, 96, 0.22);
+
+  --nav-h: 64px;
+  --max-w: 480px;
+
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+}

@@ -1,0 +1,17 @@
+rules_version = '2';
+// 個人利用の前提。まずは「全許可」で動作確認し、本番では下の認証版に切り替える。
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- 動作確認用（誰でも読み書き可能。公開URLでは危険） ---
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    // --- 本番推奨：Firebase Authentication を入れて自分だけに限定する場合 ---
+    // match /{document=**} {
+    //   allow read, write: if request.auth != null
+    //     && request.auth.uid == "あなたのUID";
+    // }
+  }
+}
