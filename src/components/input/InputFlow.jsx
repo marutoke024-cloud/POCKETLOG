@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useApp } from "../../context/AppContext";
 import { fileToBase64Scaled } from "../../lib/image";
-import { extractReceipt, parseExpenseText } from "../../lib/anthropic";
+import { extractReceipt, parseExpenseText } from "../../lib/ai";
 import { addExpense, uploadReceiptImage } from "../../data/store";
 import ConfirmForm from "./ConfirmForm";
 import VoiceCapture from "./VoiceCapture";

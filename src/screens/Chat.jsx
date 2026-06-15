@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../context/AppContext";
 import { buildFinanceContext } from "../lib/financeContext";
-import { chatAdvisor } from "../lib/anthropic";
-import { getAnthropicKey } from "../lib/settings";
+import { chatAdvisor } from "../lib/ai";
+import { getGeminiKey } from "../lib/settings";
 import MiniMarkdown from "../components/MiniMarkdown";
 import "./Chat.css";
 
@@ -27,7 +27,7 @@ export default function Chat() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const scrollRef = useRef(null);
-  const hasKey = !!getAnthropicKey();
+  const hasKey = !!getGeminiKey();
 
   useEffect(() => {
     if (!ready) return;
@@ -44,7 +44,7 @@ export default function Chat() {
     const content = (text ?? input).trim();
     if (!content || busy) return;
     if (!hasKey) {
-      setError("設定画面で Anthropic API キーを登録してください。");
+      setError("設定画面で Gemini API キーを登録してください。");
       return;
     }
     setError("");
@@ -99,7 +99,7 @@ export default function Chat() {
 
       {!hasKey && (
         <p className="chat__warn">
-          AIチャットには設定画面で Anthropic API キーの登録が必要です。
+          AIチャットには設定画面で Gemini API キーの登録が必要です。
         </p>
       )}
       {error && <p className="chat__error">{error}</p>}

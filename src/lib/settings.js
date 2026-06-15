@@ -1,29 +1,29 @@
 // アプリ設定を localStorage で管理。
-// Anthropic API キーは機微情報なのでリポジトリ／公開サイトには絶対に含めず、
+// Gemini API キーは機微情報なのでリポジトリ／公開サイトには絶対に含めず、
 // ユーザーが設定画面で入力したものをこのブラウザにのみ保存する。
 
 const LS = {
-  anthropicKey: "pocketlog.anthropicKey",
-  anthropicModel: "pocketlog.anthropicModel",
+  geminiKey: "pocketlog.geminiKey",
+  geminiModel: "pocketlog.geminiModel",
   firebaseConfig: "pocketlog.firebaseConfig",
   budgets: "pocketlog.budgets",
   budgetAlert: "pocketlog.budgetAlert",
 };
 
-export const DEFAULT_MODEL = "claude-sonnet-4-6";
+export const DEFAULT_MODEL = "gemini-2.5-flash-lite";
 
-export function getAnthropicKey() {
-  return localStorage.getItem(LS.anthropicKey) || "";
+export function getGeminiKey() {
+  return localStorage.getItem(LS.geminiKey) || "";
 }
-export function setAnthropicKey(v) {
-  localStorage.setItem(LS.anthropicKey, v.trim());
+export function setGeminiKey(v) {
+  localStorage.setItem(LS.geminiKey, v.trim());
 }
 
-export function getAnthropicModel() {
-  return localStorage.getItem(LS.anthropicModel) || DEFAULT_MODEL;
+export function getGeminiModel() {
+  return localStorage.getItem(LS.geminiModel) || DEFAULT_MODEL;
 }
-export function setAnthropicModel(v) {
-  localStorage.setItem(LS.anthropicModel, v || DEFAULT_MODEL);
+export function setGeminiModel(v) {
+  localStorage.setItem(LS.geminiModel, v || DEFAULT_MODEL);
 }
 
 // Firebase の web 設定（apiKey 等）は秘匿情報ではなく公開して問題ない。

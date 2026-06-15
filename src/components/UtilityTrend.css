@@ -1,0 +1,107 @@
+.util {
+  margin-bottom: 14px;
+}
+.util__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.util__sub {
+  font-size: 12px;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+}
+
+.util-tip__row {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.util__form {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--surface);
+}
+.util__form-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.util__form-head > span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+.util__form-head select {
+  padding: 9px 12px;
+  border-radius: var(--radius-s);
+  border: 1.5px solid var(--surface);
+  background: var(--white);
+  font-weight: 600;
+}
+
+.util__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.util__inp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.util__inp > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.util__inp > span i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.util__inp-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1.5px solid var(--surface);
+  border-radius: var(--radius-s);
+  padding: 0 10px;
+  background: var(--white);
+  width: 150px;
+}
+.util__inp-row input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  background: transparent;
+  text-align: right;
+}
+.util__inp-row em {
+  font-style: normal;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.util__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px;
+  margin: 12px 0;
+  background: var(--bg);
+  border-radius: var(--radius-s);
+  font-size: 13px;
+  color: var(--text-soft);
+}
+.util__total strong {
+  font-size: 18px;
+  color: var(--text);
+}

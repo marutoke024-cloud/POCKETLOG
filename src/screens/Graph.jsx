@@ -6,6 +6,7 @@ import { toMonthKey, monthLabel } from "../lib/date";
 import SavingsSim from "../components/sim/SavingsSim";
 import NisaSim from "../components/sim/NisaSim";
 import AtoneAlert from "../components/sim/AtoneAlert";
+import UtilityTrend from "../components/UtilityTrend";
 import "../components/charts/charts.css";
 import "./Graph.css";
 
@@ -55,6 +56,7 @@ export default function Graph() {
         )}
       </section>
 
+      <UtilityTrend />
       <SavingsSim />
       <NisaSim />
       <AtoneAlert atoneTotal={atoneTotal} />

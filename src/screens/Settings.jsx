@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useApp } from "../context/AppContext";
 import {
-  getAnthropicKey,
-  setAnthropicKey,
-  getAnthropicModel,
-  setAnthropicModel,
+  getGeminiKey,
+  setGeminiKey,
+  getGeminiModel,
+  setGeminiModel,
   getFirebaseConfigOverride,
   setFirebaseConfigOverride,
   DEFAULT_MODEL,
@@ -17,8 +17,8 @@ import "./Settings.css";
 
 export default function Settings() {
   const { ready, reconnectFirebase } = useApp();
-  const [key, setKey] = useState(getAnthropicKey());
-  const [model, setModel] = useState(getAnthropicModel());
+  const [key, setKey] = useState(getGeminiKey());
+  const [model, setModel] = useState(getGeminiModel());
   const [savedMsg, setSavedMsg] = useState("");
 
   const envHasFirebase = !!resolveFirebaseConfig() && !getFirebaseConfigOverride();
@@ -29,8 +29,8 @@ export default function Settings() {
   const [cfgMsg, setCfgMsg] = useState("");
 
   const saveKey = () => {
-    setAnthropicKey(key);
-    setAnthropicModel(model);
+    setGeminiKey(key);
+    setGeminiModel(model);
     setSavedMsg("保存しました");
     setTimeout(() => setSavedMsg(""), 2000);
   };
@@ -53,16 +53,16 @@ export default function Settings() {
 
       {/* AI / API キー */}
       <section className="card set">
-        <h3 className="set__title">AI（Anthropic API）</h3>
+        <h3 className="set__title">AI（Gemini API）</h3>
         <p className="set__note">
-          キーはこの端末のブラウザにのみ保存され、リポジトリや公開サイトには含まれません。
-          <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">
-            {" "}コンソールで発行 ↗
+          Google AI Studio の無料枠が使えます。キーはこの端末のブラウザにのみ保存され、リポジトリや公開サイトには含まれません。
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">
+            {" "}Google AI Studio で発行 ↗
           </a>
         </p>
         <div className="field">
           <label>API キー</label>
-          <input type="password" value={key} placeholder="sk-ant-..."
+          <input type="password" value={key} placeholder="AIza..."
             onChange={(e) => setKey(e.target.value)} />
         </div>
         <div className="field">

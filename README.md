@@ -1,7 +1,7 @@
 # POCKETLOG — your money, visible
 
 PayPay / atone / クレカ中心の生活に合わせた収支管理 PWA。
-React (Vite) + Firebase + Anthropic Vision で、レシートを撮るだけで家計を見える化します。
+React (Vite) + Firebase + Gemini Vision で、レシートを撮るだけで家計を見える化します。
 
 > このリポジトリは**フェーズ1〜3（全機能）**の実装です。
 
@@ -75,14 +75,15 @@ npm run icons
 
 ---
 
-## 3. Anthropic API（レシート読取・テキスト解析）
+## 3. Gemini API（レシート読取・自然言語解析・AIアドバイス・月次レポート）
 
-- [コンソール](https://console.anthropic.com/settings/keys)で API キーを発行。
-- アプリの **設定画面 → AI（Anthropic API）** にキーを入力（モデル既定値: `claude-sonnet-4-6`）。
+- [Google AI Studio](https://aistudio.google.com/apikey) で API キーを発行（**無料枠**あり）。
+- アプリの **設定画面 → AI（Gemini API）** にキーを入力（モデル既定値: `gemini-2.5-flash-lite`）。
 - キーは**この端末の localStorage にのみ**保存され、リポジトリや公開サイトには含まれません。
+- レシート/明細画像の読み取り、自然言語・音声入力の解析、AIアドバイス、月次レポートの文章生成はすべて Gemini API で処理します。
 
 > ⚠️ 静的サイト（GitHub Pages）から直接 API を叩くため、キーはブラウザに置く方式です。
-> より厳密に隠したい場合は Cloudflare Workers / Firebase Functions のプロキシ経由に差し替えてください。
+> より厳密に隠したい場合はサーバー（Cloudflare Workers / Firebase Functions）のプロキシ経由に差し替えてください。
 
 ---
 
@@ -120,7 +121,7 @@ src/
     store.js              Firestore CRUD・画像アップロード
   firebase/config.js      Firebase 初期化（env / 設定画面 の両対応）
   lib/
-    anthropic.js          Vision 抽出・テキスト解析
+    ai.js                 Gemini：Vision抽出・テキスト解析・チャット・レポート生成
     date.js               給料日(20日)起点の期間ロジック
     aggregate.js          集計（カテゴリ別・推移・先月比）
     format.js             金額表記（¥・カンマ区切り）
@@ -134,6 +135,7 @@ src/
     BottomNav.jsx         ボトムナビ＋中央FAB
     input/                入力フロー（レシート/CSV/音声/テキスト/手動）＋確認フォーム
     sim/                  貯金・NISAシミュレーター・atoneアラート
+    UtilityTrend          インフラ費（光熱費/水道/電気/ネット/携帯）の推移・手入力
     charts/               ドーナツ・折れ線
     SubscriptionManager   定期サブスク管理
     BudgetSettings        カテゴリ別予算・アラート

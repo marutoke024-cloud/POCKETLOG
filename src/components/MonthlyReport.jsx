@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
 import { buildFinanceContext } from "../lib/financeContext";
-import { generateMonthlyReport } from "../lib/anthropic";
-import { getAnthropicKey } from "../lib/settings";
+import { generateMonthlyReport } from "../lib/ai";
+import { getGeminiKey } from "../lib/settings";
 import { yen, yenSigned } from "../lib/format";
 import { compare } from "../lib/aggregate";
 import { monthLabel } from "../lib/date";
@@ -36,7 +36,7 @@ export default function MonthlyReport({ open, onClose }) {
         setCtx(context);
         setLoading(false);
         // AI 文章生成（キーがあれば）
-        if (getAnthropicKey()) {
+        if (getGeminiKey()) {
           setAiLoading(true);
           const text = await generateMonthlyReport(context.text);
           if (alive) setReport(text);
@@ -122,9 +122,9 @@ export default function MonthlyReport({ open, onClose }) {
                 <div className="report__loading"><span className="spin spin--teal" /><p>AIがレポートを作成中…</p></div>
               ) : report ? (
                 <MiniMarkdown text={report} />
-              ) : !getAnthropicKey() ? (
+              ) : !getGeminiKey() ? (
                 <p className="report__note">
-                  設定画面で Anthropic API キーを登録すると、AIによる改善提案・NISA/貯蓄コメントが表示されます。
+                  設定画面で Gemini API キーを登録すると、AIによる改善提案・NISA/貯蓄コメントが表示されます。
                 </p>
               ) : null}
               {error && <p className="sheet__error">{error}</p>}

@@ -1,7 +1,9 @@
 import {
   collection,
   addDoc,
+  getDoc,
   getDocs,
+  setDoc,
   deleteDoc,
   updateDoc,
   doc,
@@ -17,6 +19,7 @@ import { toDateKey, toMonthKey } from "../lib/date";
 const EXPENSES = "expenses";
 const INCOME = "income";
 const SUBS = "subscriptions";
+const UTILITIES = "utilities";
 
 /* ---------------- 支出 ---------------- */
 
@@ -194,6 +197,35 @@ export async function syncSubscriptionCharges(ref = new Date()) {
     added++;
   }
   return added;
+}
+
+/* ---------------- インフラ費（光熱費・水道・電気・ネット・携帯） ---------------- */
+// 支出レコードとは別管理。月ごとに1ドキュメント（id = monthKey）で手入力を保存。
+
+export async function getUtility(monthKey) {
+  const db = getDb();
+  const snap = await getDoc(doc(db, UTILITIES, monthKey));
+  return snap.exists() ? { monthKey, ...snap.data() } : null;
+}
+
+export async function upsertUtility(monthKey, values) {
+  const db = getDb();
+  const payload = { monthKey, updatedAt: serverTimestamp() };
+  for (const [k, v] of Object.entries(values)) {
+    payload[k] = Number(v) || 0;
+  }
+  await setDoc(doc(db, UTILITIES, monthKey), payload, { merge: true });
+  return payload;
+}
+
+export async function listUtilities(monthKeys) {
+  const results = await Promise.all(
+    monthKeys.map(async (k) => {
+      const u = await getUtility(k);
+      return u || { monthKey: k };
+    })
+  );
+  return results;
 }
 
 /* ---------------- 画像アップロード ---------------- */

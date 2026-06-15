@@ -54,6 +54,15 @@ export const INCOME_TYPES = [
   { id: "other", label: "その他" },
 ];
 
+// インフラ費（光熱費・水道・電気・ネット・携帯）。支出レコードとは別管理・手入力。
+export const UTILITIES = [
+  { id: "kounetsu", label: "光熱費", color: "#d69d66" },
+  { id: "suido", label: "水道代", color: "#5b94a3" },
+  { id: "denki", label: "電気代", color: "#c97f6d" },
+  { id: "net", label: "ネット代", color: "#6d9e8a" },
+  { id: "keitai", label: "携帯代", color: "#8a6d9e" },
+];
+
 // ユーザー固定情報（AI のコンテキストに使用）
 export const USER_PROFILE = {
   paydayDay: 20, // 毎月20日が給料日
