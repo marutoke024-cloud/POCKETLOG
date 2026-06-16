@@ -166,11 +166,11 @@ export default function Home({ onOpenReport }) {
       {/* AIアドバイス */}
       <section className="card home__advice">
         <div className="home__advice-head">
-          <span className="home__advice-badge">AI アドバイス</span>
+          <span className="home__advice-badge">Financial Advice</span>
         </div>
         <p>{view.advice}</p>
         <div className="home__advice-actions">
-          <Link to="/chat" className="btn btn--gold home__advice-btn">目標への伴走に相談する</Link>
+          <Link to="/chat" className="btn btn--gold home__advice-btn">Geminiに相談</Link>
           <button className="btn btn--ghost home__advice-btn" onClick={onOpenReport}>
             今月のレポート
           </button>

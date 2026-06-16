@@ -100,6 +100,27 @@ export default function Settings() {
         </div>
         <button className="btn btn--block" onClick={saveFirebase}>保存して接続</button>
         {cfgMsg && <p className="set__ok">{cfgMsg}</p>}
+
+        <div className="set__rules">
+          <strong>⚠️ 保存時に「permissions」エラーが出る場合</strong>
+          <p>
+            Firestore のセキュリティルールが書き込みを拒否しています。Firebase コンソール →
+            Firestore Database → <b>ルール</b> タブを開き、次に置き換えて「公開」してください
+            （個人利用の動作確認用。公開URLで使う場合は認証で保護してください）。
+          </p>
+          <pre>{`rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}`}</pre>
+          <p>
+            Storage（レシート画像）も同様に Storage → ルール で
+            <code> allow read, write: if true; </code> にしてください。
+          </p>
+        </div>
       </section>
 
       {/* 支払い方法（カスタマイズはフェーズ3） */}

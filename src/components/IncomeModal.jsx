@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useApp } from "../context/AppContext";
 import { addIncome } from "../data/store";
 import { INCOME_TYPES } from "../data/constants";
 import { toDateKey } from "../lib/date";
+import { friendlyError } from "../lib/errors";
 import "./input/input.css";
 
 // 収入（給与/ボーナス/その他）の手動登録。ボーナスは別枠で管理。
@@ -37,13 +39,13 @@ export default function IncomeModal({ open, onClose }) {
       bumpRefresh();
       close();
     } catch (err) {
-      setError(err.message || "保存に失敗しました。");
+      setError(friendlyError(err));
     } finally {
       setSaving(false);
     }
   };
 
-  return (
+  return createPortal(
     <div className="sheet-overlay" onClick={close}>
       <div className="sheet" onClick={(e) => e.stopPropagation()}>
         <div className="sheet__grip" />
@@ -89,6 +91,7 @@ export default function IncomeModal({ open, onClose }) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

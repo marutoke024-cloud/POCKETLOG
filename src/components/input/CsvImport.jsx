@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { decodeBuffer, csvToCandidates } from "../../lib/csv";
 import { getExistingFingerprints, addExpensesBulk } from "../../data/store";
+import { friendlyError } from "../../lib/errors";
 import { toMonthKey } from "../../lib/date";
 import { CATEGORIES, PAYMENT_METHODS } from "../../data/constants";
 import { yen } from "../../lib/format";
@@ -78,7 +79,7 @@ export default function CsvImport({ ready, onDone }) {
       setSavedCount(selected.length);
       setTimeout(onDone, 900);
     } catch (err) {
-      setError(err.message || "保存に失敗しました。");
+      setError(friendlyError(err));
     } finally {
       setBusy(false);
     }

@@ -15,8 +15,9 @@
   max-width: var(--max-w);
   background: var(--bg);
   border-radius: 22px 22px 0 0;
-  padding: 10px 18px calc(24px + env(safe-area-inset-bottom));
-  max-height: 90vh;
+  /* ボトムナビに保存ボタンが隠れないよう、ナビ分の余白を確保 */
+  padding: 10px 18px calc(var(--nav-h) + 20px + env(safe-area-inset-bottom));
+  max-height: 92vh;
   overflow-y: auto;
   animation: sheetUp 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 }

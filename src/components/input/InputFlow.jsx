@@ -6,6 +6,7 @@ import { addExpense, uploadReceiptImage } from "../../data/store";
 import ConfirmForm from "./ConfirmForm";
 import VoiceCapture from "./VoiceCapture";
 import CsvImport from "./CsvImport";
+import { friendlyError } from "../../lib/errors";
 import "./input.css";
 
 const OPTIONS = [
@@ -121,7 +122,7 @@ export default function InputFlow({ open, onClose }) {
       bumpRefresh();
       close();
     } catch (err) {
-      setError(err.message || "保存に失敗しました。");
+      setError(friendlyError(err));
     } finally {
       setSaving(false);
     }
