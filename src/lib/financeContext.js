@@ -16,19 +16,14 @@ export async function buildFinanceContext(ref = new Date()) {
         listIncomeByMonth(k),
       ]);
       const expenseTotal = sum(expenses);
-      const salary = income
-        .filter((i) => i.type !== "bonus")
-        .reduce((s, i) => s + (i.amount || 0), 0);
-      const bonus = income
-        .filter((i) => i.type === "bonus")
-        .reduce((s, i) => s + (i.amount || 0), 0);
+      // 給与・ボーナス・その他すべてを月の収入として合算
+      const incomeTotal = income.reduce((s, i) => s + (i.amount || 0), 0);
       return {
         key: k,
         label: monthLabel(k),
         expenseTotal,
-        income: salary,
-        bonus,
-        net: salary - expenseTotal,
+        income: incomeTotal,
+        net: incomeTotal - expenseTotal,
         categories: byCategory(expenses),
         ranking: categoryRanking(expenses),
         atone: sum(expenses.filter((e) => e.payment === "atone")),
@@ -44,9 +39,7 @@ export async function buildFinanceContext(ref = new Date()) {
       .slice(0, 5)
       .map((c) => `${c.name}:${yen(c.value)}`)
       .join("、");
-    return `■${m.label}\n  支出合計:${yen(m.expenseTotal)} / 収入:${yen(m.income)}${
-      m.bonus ? `（別途ボーナス${yen(m.bonus)}）` : ""
-    } / 収支:${yen(m.net)}\n  カテゴリ上位: ${cats || "なし"}\n  atone後払い:${yen(m.atone)}`;
+    return `■${m.label}\n  支出合計:${yen(m.expenseTotal)} / 収入:${yen(m.income)} / 収支:${yen(m.net)}\n  カテゴリ上位: ${cats || "なし"}\n  atone後払い:${yen(m.atone)}`;
   });
 
   const text = `【直近3ヶ月の収支データ】\n${lines.join("\n")}`;

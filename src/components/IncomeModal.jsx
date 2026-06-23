@@ -79,7 +79,7 @@ export default function IncomeModal({ open, onClose }) {
 
         {type === "bonus" && (
           <p className="income__note">
-            ボーナスは別枠で管理され、通常月の収支集計には混ざりません。
+            ボーナスもその月の収入として合算され、収支差額に反映されます。
           </p>
         )}
         {error && <p className="sheet__error">{error}</p>}

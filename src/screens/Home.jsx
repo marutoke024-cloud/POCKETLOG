@@ -38,15 +38,11 @@ export default function Home({ onOpenReport }) {
 
   const { rows, loading } = useExpenses(months);
 
-  // 今月の収入（ボーナスを除く通常月集計）
+  // 今月の収入（給与・ボーナス・その他すべて合算）
   useEffect(() => {
     if (!ready) return;
     listIncomeByMonth(thisKey)
-      .then((list) =>
-        setIncome(
-          list.filter((i) => i.type !== "bonus").reduce((s, i) => s + (i.amount || 0), 0)
-        )
-      )
+      .then((list) => setIncome(list.reduce((s, i) => s + (i.amount || 0), 0)))
       .catch(() => setIncome(0));
   }, [ready, thisKey, refreshKey]);
 

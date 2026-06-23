@@ -1,0 +1,99 @@
+.bal {
+  margin-bottom: 14px;
+}
+.bal__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.bal__sub {
+  font-size: 12px;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+}
+
+.bal__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.bal__net {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: var(--radius-m);
+}
+.bal__net span {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+.bal__net strong {
+  font-size: 24px;
+  font-weight: 800;
+}
+.bal__net strong.pos,
+.bal__list-net.pos {
+  color: var(--ok);
+}
+.bal__net strong.neg,
+.bal__list-net.neg {
+  color: var(--danger);
+}
+.bal__verdict {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius-m);
+}
+.bal__verdict.is-warn {
+  background: rgba(208, 91, 84, 0.1);
+  color: var(--danger);
+}
+.bal__verdict.is-ok {
+  background: rgba(91, 158, 122, 0.12);
+  color: var(--ok);
+}
+
+.bal-tip__row {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.bal-tip__row .pos {
+  color: #b7ead0;
+}
+.bal-tip__row .neg {
+  color: #ffb3ad;
+}
+
+.bal__list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bal__list li {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
+  border-top: 1px solid var(--surface);
+  font-size: 12px;
+}
+.bal__list-month {
+  font-weight: 700;
+  color: var(--text-soft);
+}
+.bal__list-bars {
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+}
+.bal__list-net {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

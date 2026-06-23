@@ -7,6 +7,7 @@ import SavingsSim from "../components/sim/SavingsSim";
 import NisaSim from "../components/sim/NisaSim";
 import AtoneAlert from "../components/sim/AtoneAlert";
 import UtilityTrend from "../components/UtilityTrend";
+import BalanceCompare from "../components/BalanceCompare";
 import "../components/charts/charts.css";
 import "./Graph.css";
 
@@ -25,6 +26,8 @@ export default function Graph() {
   return (
     <div className="screen graph fade-in">
       <h2 className="screen-title">グラフ・シミュレーション</h2>
+
+      <BalanceCompare />
 
       <section className="card graph__section">
         <h3 className="graph__title">支出カテゴリランキング</h3>

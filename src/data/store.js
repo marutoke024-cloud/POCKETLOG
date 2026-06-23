@@ -122,6 +122,11 @@ export async function listIncomeByMonth(monthKey) {
   return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 }
 
+export async function listIncomeByMonths(monthKeys) {
+  const results = await Promise.all(monthKeys.map(listIncomeByMonth));
+  return results.flat();
+}
+
 /* ---------------- 定期サブスク ---------------- */
 
 export async function listSubscriptions() {
